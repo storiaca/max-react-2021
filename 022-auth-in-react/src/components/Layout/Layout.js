@@ -1,7 +1,7 @@
-import { Fragment } from 'react';
+import { Fragment } from "react";
 
-import MainNavigation from './MainNavigation';
-
+import MainNavigation from "./MainNavigation";
+// comment
 const Layout = (props) => {
   return (
     <Fragment>
