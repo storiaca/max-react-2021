@@ -8,7 +8,7 @@ const SimpleInput = (props) => {
   const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
 
   let formIsValid = false;
-
+  // start challenge
   if (enteredNameIsValid) {
     formIsValid = true;
   }
