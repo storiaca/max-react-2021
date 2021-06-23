@@ -9,14 +9,12 @@ const SimpleInput = (props) => {
   const enteredNameIsValid = enteredName.trim() !== "";
   const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
 
-  const re =
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  const enteredEmailIsValid = re.test(String(enteredName).toLowerCase());
+  const enteredEmailIsValid = enteredEmail.includes("@");
   const emailInputIsInvalid = !enteredEmailIsValid && enteredEmailTouched;
 
   let formIsValid = false;
-  // start challenge
-  if (enteredNameIsValid && !enteredEmailIsValid) {
+
+  if (enteredNameIsValid && enteredEmailIsValid) {
     formIsValid = true;
   }
 
@@ -40,8 +38,6 @@ const SimpleInput = (props) => {
     event.preventDefault();
 
     setEnteredNameTouch(true);
-
-    setEnteredEmailTouch(true);
 
     if (!enteredNameIsValid && !enteredEmailIsValid) {
       return;
@@ -79,16 +75,16 @@ const SimpleInput = (props) => {
           <p className="error-text">Name must not be empty.</p>
         )}
       </div>
-      <div className={nameInputClasses}>
-        <label htmlFor="name">Your Email</label>
+      <div className={emailInputClasses}>
+        <label htmlFor="email">Your Email</label>
         <input
-          type="text"
-          id="name"
+          type="email"
+          id="email"
           onChange={emailInputChangeHandler}
           onBlur={emailInputBlurHandler}
           value={enteredEmail}
         />
-        {!emailInputClasses && (
+        {emailInputIsInvalid && (
           <p className="error-text">Email must be valid.</p>
         )}
       </div>
