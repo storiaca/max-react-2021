@@ -9,7 +9,7 @@ const BasicForm = (props) => {
     isValid: firstNameIsValid,
     valueChangeHandler: firstNameChangehandler,
     inputBlurHandler: firstNameBlurHandler,
-    reset: resetfirstName,
+    reset: resetFirstName,
   } = useInput(isNotEmpty);
 
   const {
