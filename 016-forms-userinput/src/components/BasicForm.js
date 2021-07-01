@@ -20,15 +20,23 @@ const BasicForm = (props) => {
     reset: resetLastName,
   } = useInput(isNotEmpty);
 
-  useInput(isNotEmpty);
-  useInput(isEmail);
+  const {
+    value: emailValue,
+    isValid: emailIsValid,
+    valueChangeHandler: emailChangehandler,
+    inputBlurHandler: emailBlurHandler,
+    reset: resetEmail,
+  } = useInput(isEmail);
+
+  // useInput(isNotEmpty);
+  // useInput(isEmail);
 
   return (
     <form>
       <div className="control-group">
         <div className="form-control">
-          <label htmlFor="name">last Name</label>
-          <input type="text" id="name" />
+          <label htmlFor="name">First Name</label>
+          <input type="text" id="name" value={firstNameValue} />
         </div>
         <div className="form-control">
           <label htmlFor="name">Last Name</label>
