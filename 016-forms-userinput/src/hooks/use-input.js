@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useReducer } from "react";
+
+const inpsutStateReducer = (state, action) => {};
 
 const useInput = (validateValue) => {
   const [enteredValue, setEnteredValue] = useState("");
