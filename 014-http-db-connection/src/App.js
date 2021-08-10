@@ -3,7 +3,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import MoviesList from "./components/MoviesList";
 import AddMovie from "./components/AddMovie";
 import "./App.css";
-// start implement firebase
+
 function App() {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -13,7 +13,9 @@ function App() {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch("https://swapi.dev/api/films/");
+      const response = await fetch(
+        "https://max-reat-http-default-rtdb.europe-west1.firebasedatabase.app/movies.json"
+      );
       if (!response.ok) {
         throw new Error("Something went wrong!");
       }
