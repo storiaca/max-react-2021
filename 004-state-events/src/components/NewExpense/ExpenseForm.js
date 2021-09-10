@@ -23,6 +23,7 @@ const ExpenseForm = () => {
   };
 
   const amountChangeHandler = (e) => {
+    setAmount(e.target.value);
     // setUserInput({
     //   ...userInput,
     //   amount: e.target.value,
@@ -30,14 +31,25 @@ const ExpenseForm = () => {
   };
 
   const dateChangeHandler = (e) => {
+    setDate(e.target.value);
     // setUserInput({
     //   ...userInput,
     //   date: e.target.value,
     // });
   };
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    const expenseData = {
+      title,
+      amount,
+      date: new Date(date),
+    };
+    console.log(expenseData);
+  };
   return (
-    <form>
+    <form onSumbit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
