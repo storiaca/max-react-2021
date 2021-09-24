@@ -26,6 +26,7 @@ const DUMMY_EXPENSES = [
 ];
 const App = () => {
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
+  const [showForm, setShowForm] = useState(false);
 
   const addExpenseHandler = (expense) => {
     setExpenses((prevExpenses) => {
@@ -33,10 +34,28 @@ const App = () => {
     });
   };
 
+  const handleShowForm = () => {
+    setShowForm(true);
+  };
+
+  const handleHideForm = () => {
+    setShowForm(false);
+  };
+
   return (
     <div>
       <h2>Let's get started!</h2>
-      <NewExpense onAddExpense={addExpenseHandler} />
+      {!showForm && (
+        <div className="new-expense">
+          <button onClick={handleShowForm}>Add New Expense</button>
+        </div>
+      )}
+      {showForm && (
+        <NewExpense
+          onHideForm={handleHideForm}
+          onAddExpense={addExpenseHandler}
+        />
+      )}
       <Expenses items={expenses} />
     </div>
   );
