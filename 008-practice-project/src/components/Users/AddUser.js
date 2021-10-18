@@ -20,7 +20,7 @@ const AddUser = (props) => {
       return;
     }
 
-    if (enteredAge < 1) {
+    if (+enteredAge < 1) {
       return;
     }
     console.log(enteredUsername, enteredAge);
