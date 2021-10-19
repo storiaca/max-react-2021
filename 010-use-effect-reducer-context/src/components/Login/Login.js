@@ -6,10 +6,10 @@ import Button from "../UI/Button/Button";
 
 const emailReducer = (state, action) => {
   if (action.type === "USER_INPUT") {
-    return { value: state?.val, isValid: action?.val?.includes("@") };
+    return { value: action?.val, isValid: action.val?.includes("@") };
   }
   if (action.type === "INPUT_BLUR") {
-    return { value: state.value, isValid: state?.value?.includes("@") };
+    return { value: state.value, isValid: state.value?.includes("@") };
   }
 
   return { value: "", isValid: false };
@@ -17,10 +17,10 @@ const emailReducer = (state, action) => {
 
 const passwordReducer = (state, action) => {
   if (action.type === "USER_INPUT") {
-    return { value: state.val, isValid: action?.val?.trim().length > 6 };
+    return { value: action.val, isValid: action.val.trim().length > 6 };
   }
   if (action.type === "INPUT_BLUR") {
-    return { value: state.value, isValid: state?.value?.trim().length > 6 };
+    return { value: state.value, isValid: state.value.trim().length > 6 };
   }
 
   return { value: "", isValid: false };
