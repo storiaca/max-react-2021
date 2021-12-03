@@ -1,7 +1,12 @@
 import React from "react";
 import classes from "MealItemForm.module.css";
 const MealItemForm = () => {
-  return <div></div>;
+  return (
+    <form>
+      <input />
+      <button>+ Add</button>
+    </form>
+  );
 };
 
 export default MealItemForm;
