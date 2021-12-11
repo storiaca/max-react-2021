@@ -5,7 +5,7 @@ import classes from "./MealItem.module.css";
 const MealItem = (props) => {
   const price = `$${props.price.toFixed(2)}`;
   return (
-    <li className={classes.meal} key={props.key}>
+    <li className={classes.meal} key={props.id}>
       <div>
         <h3>{props.name}</h3>
         <div className={classes.description}>{props.description}</div>
