@@ -25,7 +25,18 @@ const Cart = (props) => {
     setIsCheckout(true);
   };
 
-  const submitOrderHandler = (userData) => {};
+  const submitOrderHandler = (userData) => {
+    fetch(
+      "https://max-reat-http-default-rtdb.europe-west1.firebasedatabase.app/orders.json",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          user: userData,
+          orderedItems: cartCtx.items,
+        }),
+      }
+    );
+  };
 
   const cartItems = (
     <ul className={classes["cart-items"]}>
