@@ -10,8 +10,11 @@ function App() {
   const cart = useSelector((state) => state.cart);
 
   useEffect(() => {
-    fetch(`${FIREBASE_DOMAIN}cart.json`, { method: "PUT" });
-  }, [third]);
+    fetch(`${FIREBASE_DOMAIN}cart.json`, {
+      method: "PUT",
+      body: JSON.stringify(cart),
+    });
+  }, [cart, FIREBASE_DOMAIN]);
 
   return (
     <Layout>
