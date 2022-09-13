@@ -9,6 +9,10 @@ const cartSlice = createSlice({
     totalQuantity: 0,
   },
   reducers: {
+    replaceCart(state, action) {
+      state.totalQuantity = action.payload.totalQuantity;
+      state.items = action.payload.items;
+    },
     addItemToCart(state, action) {
       const newItem = action.payload;
       const existingItem = state.items.find((item) => item.id === newItem.id);
@@ -34,7 +38,6 @@ const cartSlice = createSlice({
         state.items = state.items.filter((item) => item.id !== id);
       } else {
         existingItem.quantity--;
-        existingItem.totalPrice = existingItem.totalPrice - existingItem.price;
       }
     },
   },
@@ -46,7 +49,7 @@ export const sendCartData = (cart) => {
       uiActions.showNotification({
         status: "pending",
         title: "Sending...",
-        message: "Sending cart data",
+        message: "Sending cart data!",
       })
     );
 
@@ -57,11 +60,13 @@ export const sendCartData = (cart) => {
       });
 
       if (!response.ok) {
-        throw new Error("Sending cart data failed!");
+        throw new Error("Sending cart data failed.");
       }
     };
+
     try {
       await sendRequest();
+
       dispatch(
         uiActions.showNotification({
           status: "success",
