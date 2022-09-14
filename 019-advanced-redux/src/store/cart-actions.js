@@ -1,4 +1,6 @@
 import { uiActions } from "./ui-slice";
+import { cartActions } from "./cart-slice";
+
 const FIREBASE_DOMAIN = process.env.REACT_APP_FIREBASE;
 
 export const fetchCartData = () => {
@@ -17,6 +19,7 @@ export const fetchCartData = () => {
 
     try {
       const cartData = await fetchData();
+      dispatch(cartActions.replaceCart(cartData));
     } catch (error) {
       dispatch(
         uiActions.showNotification({
@@ -40,7 +43,7 @@ export const sendCartData = (cart) => {
     );
 
     const sendRequest = async () => {
-      const response = await fetch(`${FIREBASE_DOMAIN}`, {
+      const response = await fetch(`${FIREBASE_DOMAIN}/cart.json`, {
         method: "PUT",
         body: JSON.stringify(cart),
       });
