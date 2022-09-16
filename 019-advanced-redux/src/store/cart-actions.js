@@ -48,7 +48,7 @@ export const sendCartData = (cart) => {
     );
 
     const sendRequest = async () => {
-      const response = await fetch(`${FIREBASE_DOMAIN}/cart.json`, {
+      const response = await fetch(`${FIREBASE_DOMAIN}cart.json`, {
         method: "PUT",
         body: JSON.stringify({
           items: cart.items,
