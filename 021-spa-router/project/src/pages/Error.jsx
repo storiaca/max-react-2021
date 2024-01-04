@@ -1,15 +1,16 @@
-import { Outlet } from "react-router-dom";
+import React from "react";
 import MainNavgation from "../components/MainNavgation";
 
-const Root = () => {
+const Error = () => {
   return (
     <div>
       <MainNavgation />
       <main>
-        <Outlet />
+        <h1>An error occurred!</h1>
+        <p>Could not find this page!</p>
       </main>
     </div>
   );
 };
 
-export default Root;
+export default Error;
