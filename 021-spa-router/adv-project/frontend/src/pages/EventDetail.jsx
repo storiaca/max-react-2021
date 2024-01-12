@@ -4,9 +4,9 @@ const EventDetail = () => {
   const params = useParams();
   return (
     <div>
-      <p>Event id is {params.id}</p>
+      <p>Event id is {params.eventId}</p>
       <p>
-        Edit event <Link to={`/events/${params.id}/edit`}>edit</Link>
+        Edit event <Link to={`/events/${params.eventId}/edit`}>edit</Link>
       </p>
     </div>
   );
