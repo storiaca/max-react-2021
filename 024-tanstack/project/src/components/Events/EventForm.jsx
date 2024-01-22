@@ -40,8 +40,8 @@ export default function EventForm({ inputData, onSubmit, children }) {
       {isPending && <p>Loading selectable images...</p>}
       {isError && (
         <ErrorBlock
-          title="failed to load selectable images"
-          message="Please try again later"
+          title="Failed to load selectable images"
+          error={error.info?.message || 'Please try again later'}
         />
       )}
       {data && (

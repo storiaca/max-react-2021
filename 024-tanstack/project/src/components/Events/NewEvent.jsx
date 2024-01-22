@@ -9,7 +9,10 @@ import ErrorBlock from '../UI/ErrorBlock.jsx';
 export default function NewEvent() {
   const navigate = useNavigate();
   const { mutate, isPending, isError, error } = useMutation({
-    mutationFn: createNewEvent(),
+    mutationFn: createNewEvent,
+    onSuccess: () => {
+      navigate('/events');
+    },
   });
 
   function handleSubmit(formData) {
