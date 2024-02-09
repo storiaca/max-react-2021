@@ -1,3 +1,4 @@
+import { CORE_CONCEPTS } from './data.js';
 import reactImg from './assets/react-core-concepts.png';
 import componentsImg from './assets/components.png';
 
@@ -40,26 +41,14 @@ function App() {
         <div id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
-            <CoreConcept
-              title="Components"
-              description="The core UI building block"
-              image={componentsImg}
-            />
-            <CoreConcept
-              title="Props"
-              description="The core UI building block"
-              image={componentsImg}
-            />
-            <CoreConcept
-              title="Composition"
-              description="The core UI building block"
-              image={componentsImg}
-            />
-            <CoreConcept
-              title="Dogfooding"
-              description="The core UI building block"
-              image={componentsImg}
-            />
+            {CORE_CONCEPTS.map((core) => (
+              <CoreConcept
+                key={core.key}
+                title={core.title}
+                description={core.description}
+                image={core.image}
+              />
+            ))}
           </ul>
         </div>
       </main>
