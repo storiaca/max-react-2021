@@ -40,6 +40,9 @@ function App() {
                 image={core.image}
               />
             ))}
+            {/* {CORE_CONCEPTS.map((core) => (
+              <CoreConcept key={core.title} {...core} />
+            ))} */}
           </ul>
         </section>
         <section id="examples">
