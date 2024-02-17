@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Section = ({ children, title, ...props }) => {
   return (
     <section {...props}>
