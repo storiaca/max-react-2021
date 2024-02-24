@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 // setGrid((prevGameBoard) => {
 //   const updatedBoard = structuredClone(prevGameBoard)
 //   updatedBoard[x][y] = value
@@ -12,7 +10,7 @@ const initialGameBoard = [
   [null, null, null]
 ];
 
-const GameBoard = ({ onSelectSquare, activePlayerSymbol }) => {
+const GameBoard = ({ onSelectSquare }) => {
   // const [gameBoard, setGameBoard] = useState(initialGameBoard);
 
   // function handleSelectSquare(rowIndex, colIndex) {
@@ -34,9 +32,7 @@ const GameBoard = ({ onSelectSquare, activePlayerSymbol }) => {
           <ol>
             {row.map((playerSymbol, colIndex) => (
               <li key={colIndex}>
-                <button onClick={() => handleSelectSquare(rowIndex, colIndex)}>
-                  {playerSymbol}
-                </button>
+                <button onClick={onSelectSquare}>{playerSymbol}</button>
               </li>
             ))}
           </ol>
