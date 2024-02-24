@@ -29,7 +29,9 @@ function App() {
 
   const activePlayer = deriveActivePlayer(gameTurns);
 
-  let gameBoard = initialGameBoard;
+  // deep clone example with map
+  // let gameBoard = [...initialGameBoard.map(array => [...array])]
+  let gameBoard = structuredClone(initialGameBoard);
 
   // if turns are empty array this for loop won't execute
   for (const turn of gameTurns) {
@@ -60,7 +62,10 @@ function App() {
 
   const hasDraw = gameTurns.length === 9 && !winner;
 
-  console.log(gameTurns.length);
+  function handleRestart() {
+    setGameTurns([]);
+  }
+
   function handleSelectSquare(rowIndex, colIndex) {
     // setActivePlayer((curActivePlayer) => (curActivePlayer === 'X' ? 'O' : 'X'));
 
@@ -97,7 +102,9 @@ function App() {
             isActive={activePlayer === 'O'}
           />
         </ol>
-        {(winner || hasDraw) && <GameOver winner={winner} />}
+        {(winner || hasDraw) && (
+          <GameOver winner={winner} onRestart={handleRestart} />
+        )}
         <GameBoard onSelectSquare={handleSelectSquare} board={gameBoard} />
       </div>
       <Log turns={gameTurns} />
