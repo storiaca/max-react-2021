@@ -4,22 +4,7 @@
 //   return updatedBoard
 // })
 
-const initialGameBoard = [
-  [null, null, null],
-  [null, null, null],
-  [null, null, null]
-];
-
-const GameBoard = ({ onSelectSquare, turns }) => {
-  let gameBoard = initialGameBoard;
-
-  // if turns are empty array this for loop won't execute
-  for (const turn of turns) {
-    const { square, player } = turn;
-    const { row, col } = square;
-
-    gameBoard[row][col] = player;
-  }
+const GameBoard = ({ onSelectSquare, board }) => {
   // const [gameBoard, setGameBoard] = useState(initialGameBoard);
 
   // function handleSelectSquare(rowIndex, colIndex) {
@@ -36,7 +21,7 @@ const GameBoard = ({ onSelectSquare, turns }) => {
 
   return (
     <ol id="game-board">
-      {gameBoard.map((row, rowIndex) => (
+      {board.map((row, rowIndex) => (
         <li key={rowIndex}>
           <ol>
             {row.map((playerSymbol, colIndex) => (
