@@ -13,11 +13,12 @@ function App() {
   });
 
   function handleChange(e) {
-    const { name, value } = e.target;
+    const { name, valueAsNumber, value } = e.target;
     setUserInput((prevUserInput) => {
       return {
         ...prevUserInput,
-        [name]: value,
+        [name]: +value,
+        //[name]: valueAsNumber,
       };
     });
   }
