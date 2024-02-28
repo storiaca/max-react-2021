@@ -8,11 +8,21 @@ const UserInput = () => {
     duration: 10,
   });
 
-  function handleChange(inputIdentifier, newValue) {
+  // function handleChange(inputIdentifier, newValue) {
+  //   setUserInput((prevUserInput) => {
+  //     return {
+  //       ...prevUserInput,
+  //       [inputIdentifier]: newValue,
+  //     };
+  //   });
+  // }
+
+  function handleChange(e) {
+    const { name, value } = e.target;
     setUserInput((prevUserInput) => {
       return {
         ...prevUserInput,
-        [inputIdentifier]: newValue,
+        [name]: value,
       };
     });
   }
@@ -25,8 +35,9 @@ const UserInput = () => {
           <input
             type="number"
             id="initial-investment"
+            name="initialInvestment"
             value={userInput.initialInvestment}
-            onChange={(e) => handleChange("initialInvestment", e.target.value)}
+            onChange={(e) => handleChange(e)}
             required
           />
         </p>
@@ -35,9 +46,10 @@ const UserInput = () => {
           <input
             type="number"
             id="annual-investment"
-            required
+            name="annualInvestment"
             value={userInput.annualInvestment}
-            onChange={(e) => handleChange("annualInvestment", e.target.value)}
+            onChange={(e) => handleChange(e)}
+            required
           />
         </p>
       </div>
@@ -47,9 +59,10 @@ const UserInput = () => {
           <input
             type="number"
             id="return"
-            required
+            name="expectedReturn"
             value={userInput.expectedReturn}
-            onChange={(e) => handleChange("expectedReturn", e.target.value)}
+            onChange={(e) => handleChange(e)}
+            required
           />
         </p>
         <p>
@@ -57,9 +70,10 @@ const UserInput = () => {
           <input
             type="number"
             id="duration"
-            required
+            name="duration"
             value={userInput.duration}
-            onChange={(e) => handleChange("duration", e.target.value)}
+            onChange={(e) => handleChange(e)}
+            required
           />
         </p>
       </div>
