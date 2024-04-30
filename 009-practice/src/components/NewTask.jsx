@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function NewTask() {
+function NewTask({ onAdd }) {
   const [enteredTask, setEnteredTask] = useState("");
 
   function handleChange(event) {
@@ -8,6 +8,7 @@ function NewTask() {
   }
 
   function handleClick() {
+    onAdd(enteredTask);
     setEnteredTask("");
   }
 
