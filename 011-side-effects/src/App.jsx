@@ -70,9 +70,14 @@ function App() {
     );
   }
 
+  function handleStopRemovePlace() {
+    setIsOpen(false);
+    console.log("Setting to false");
+  }
+
   return (
     <>
-      <Modal open={modalIsOpen}>
+      <Modal open={modalIsOpen} onClose={handleStopRemovePlace}>
         <DeleteConfirmation
           onCancel={handleStopRemovePlace}
           onConfirm={handleRemovePlace}
