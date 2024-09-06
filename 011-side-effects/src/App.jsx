@@ -71,7 +71,7 @@ function App() {
   }
 
   function handleStopRemovePlace() {
-    setIsOpen(false);
+    setModalIsOpen(false);
     console.log("Setting to false");
   }
 
