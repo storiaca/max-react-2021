@@ -57,7 +57,7 @@ const Quiz = () => {
         answerState={answerState}
         selectedAnswer={userAnswers[userAnswers.length - 1]}
         onSelectAnswer={handleSelectAnswer}
-        onSkipanswer={handleSkipAnswer}
+        onSkipAnswer={handleSkipAnswer}
       />
     </div>
   );
