@@ -1,6 +1,9 @@
 import React from "react";
+import QUESTIONS from "../questions";
+
 import imageComplete from "../assets/quiz-complete.png";
-const Summary = () => {
+
+const Summary = ({ userAnswers }) => {
   return (
     <div id="summary">
       <img src={imageComplete} alt="Trophy icon" />
@@ -20,11 +23,16 @@ const Summary = () => {
         </p>
       </div>
       <ol>
-        <li>
-          <h3>2</h3>
-          <p className="question">Question text</p>
-          <p className="user-answer">user's answer</p>
-        </li>
+        {userAnswers.map((answer, index) => {
+          let cssClass = "user-answer";
+          return (
+            <li key={answer}>
+              <h3>{index + 1}</h3>
+              <p className="question">{QUESTIONS[index].text}</p>
+              <p className="user-answer">{answer ?? "Skipped"}</p>
+            </li>
+          );
+        })}
       </ol>
     </div>
   );
