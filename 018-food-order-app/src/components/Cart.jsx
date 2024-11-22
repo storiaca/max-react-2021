@@ -42,7 +42,9 @@ const Cart = () => {
         <Button textOnly onClick={handleCloseCart}>
           Close
         </Button>
-        <Button onClick={handleCloseCart}>Go to Checkout</Button>
+        {cartCtx.items.length > 0 ? (
+          <Button onClick={handleCloseCart}>Go to Checkout</Button>
+        ) : null}
       </p>
     </Modal>
   );
