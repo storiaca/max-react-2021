@@ -22,6 +22,7 @@ const Checkout = () => {
 
   function handleSubmit(event) {
     event.preventDefault();
+
     const fd = new FormData(event.target);
     const customerData = Object.fromEntries(fd.entries());
   }
