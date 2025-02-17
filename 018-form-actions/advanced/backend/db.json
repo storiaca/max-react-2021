@@ -2,7 +2,7 @@
   "opinions": [
     {
       "id": 1739789256017,
-      "votes": 0,
+      "votes": 1,
       "userName": "Aleksandar",
       "title": "Form Actions are new",
       "body": "This is new feature in react 19"
