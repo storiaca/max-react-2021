@@ -1,4 +1,5 @@
-import fs from "node:fs/promises";
+"use client";
+//import fs from "node:fs/promises";
 import { useState, use } from "react";
 export default function UsePromiseDemo({ usersPromise }) {
   const users = use();
