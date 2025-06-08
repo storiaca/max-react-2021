@@ -9,7 +9,7 @@ export default function Modal({ title, children, onClose }) {
       <motion.dialog
         variants={{
           hidden: { opacity: 0, y: 30 },
-          visible: { opacity: 0, y: 30 },
+          visible: { opacity: 1, y: 30 },
         }}
         initial="hidden"
         animate="visible"
