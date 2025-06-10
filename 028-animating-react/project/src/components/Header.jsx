@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import NewChallenge from "./NewChallenge.jsx";
 
 export default function Header() {
-  const [isCreatingNewChallenge, setIsCreatingNewChallenge] = useState();
+  const [isCreatingNewChallenge, setIsCreatingNewChallenge] = useState(false);
 
   function handleStartAddNewChallenge() {
     setIsCreatingNewChallenge(true);
@@ -24,7 +24,7 @@ export default function Header() {
         <h1>Your Challenges</h1>
         <motion.button
           whileHover={{ scale: 1.1, backgroundColor: "#8b11f0" }}
-          transition={{ type: "spring", stiffness: 500, mass: 100 }}
+          transition={{ type: "spring", stiffness: 500 }}
           onClick={handleStartAddNewChallenge}
           className="button"
         >
