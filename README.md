@@ -2,4 +2,4 @@
 
 ## Github
 
-https://github.com/academind/react-complete-guide-course-resources
+<https://github.com/academind/react-complete-guide-course-resources>
