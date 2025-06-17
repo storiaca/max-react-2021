@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 import cityImg from "../assets/city.jpg";
 import heroImg from "../assets/hero.png";
 
 export default function WelcomePage() {
+  const { scrollY } = useScroll();
   return (
     <>
       <header id="welcome-header">
