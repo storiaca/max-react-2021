@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const SearchableList = ({ items }) => {
+const SearchableList = ({ items, children }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   function handleChange(event) {
@@ -23,7 +23,7 @@ const SearchableList = ({ items }) => {
       />
       <ul>
         {searchResults.map((item, index) => (
-          <li key={index}>{item.toString()}</li>
+          <li key={index}>{children(item)}</li>
         ))}
       </ul>
     </div>
