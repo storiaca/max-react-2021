@@ -5,7 +5,7 @@ const configureStore = () => {
     TOGGLE_FAV: (curState, productId) => {
       const prodIndex = curState.products.findIndex((p) => p.id === productId);
       const newFavStatus = !curState.products[prodIndex].isFavorite;
-      const updatedProducts = [...curState];
+      const updatedProducts = [...curState.products];
       updatedProducts[prodIndex] = {
         ...curState.products[prodIndex],
         isFavorite: newFavStatus,
