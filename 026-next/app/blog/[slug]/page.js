@@ -1,9 +1,8 @@
-export default function BlogPage() {
+export default function BlogPostPage({ params }) {
   return (
     <main>
       <h1>Blog post</h1>
-      <p></p>
-      <p></p>
+      <p>{params.slug}</p>
     </main>
   );
 }
