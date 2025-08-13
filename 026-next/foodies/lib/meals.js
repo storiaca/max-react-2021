@@ -17,4 +17,6 @@ export function getMeal(slug) {
 export function saveMeal(meal) {
   meal.slug = slugify(meal.title, { lower: true });
   meal.instructions = xss(meal.instructions);
+
+  const extension = "bla";
 }
