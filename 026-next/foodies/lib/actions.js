@@ -7,7 +7,7 @@ function isInvalidText(text) {
   return !text || text.trim() === "";
 }
 
-export async function shareMeal(formData) {
+export async function shareMeal(prevValue, formData) {
   const meal = {
     title: formData.get("title"),
     summary: formData.get("summary"),
@@ -27,7 +27,17 @@ export async function shareMeal(formData) {
     !meal.image ||
     meal.image.size === 0
   ) {
-    throw new Error("Invalid input");
+    return {
+      message: "Please fill in all fields correctly!",
+      values: {
+        title: meal.title || "",
+        summary: meal.summary || "",
+        instructions: meal.instructions || "",
+        image: meal.image || null,
+        creator: meal.creator || "",
+        creator_email: meal.creator_email || "",
+      },
+    };
   }
   await saveMeal(meal);
   redirect("/meals");

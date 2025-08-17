@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import classes from "./image-picker.module.css";
 
-export default function ImagePicker({ label, name }) {
+export default function ImagePicker({ label, name, defaultValue }) {
   const [pickedImage, setPickedImage] = useState();
   const imageInput = useRef();
 
@@ -51,6 +51,7 @@ export default function ImagePicker({ label, name }) {
           ref={imageInput}
           onChange={handleImageChange}
           required
+          defaultValue={defaultValue}
         />
         <button
           className={classes.button}
