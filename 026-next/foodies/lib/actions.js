@@ -29,14 +29,6 @@ export async function shareMeal(prevValue, formData) {
   ) {
     return {
       message: "Please fill in all fields correctly!",
-      values: {
-        title: meal.title || "",
-        summary: meal.summary || "",
-        instructions: meal.instructions || "",
-        image: meal.image || null,
-        creator: meal.creator || "",
-        creator_email: meal.creator_email || "",
-      },
     };
   }
   await saveMeal(meal);
